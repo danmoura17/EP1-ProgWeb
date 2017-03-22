@@ -7,5 +7,16 @@
 <h1>Te amo Deus</h1>
 
 {{djangomoc}}
+
+<br>
+
+<ol>
+{%for cliente in lista_clientes%}
+	<li><a href="{% url 'cliente_update' cliente.id %}">{{cliente}}</a></li>
+{% endfor %}
+
+</ol>
+
+
 </body>
 </html>
