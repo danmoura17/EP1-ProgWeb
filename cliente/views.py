@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from cliente.models import Cliente
+from django.shortcuts import get_object_or_404
 
 def home(request):
 	return HttpResponse('Hello World!')
@@ -13,4 +14,5 @@ def cliente(request):
 	return render(request, 'clientes.html', data)
 
 def cliente_update(request, pk):
-	return HttpResponse('Cliente '+ str(pk))
+	cliente = get_object_or_404(Cliente, pk=pk)
+	return render(request,'cliente_detalhe.html',{'object':cliente})
